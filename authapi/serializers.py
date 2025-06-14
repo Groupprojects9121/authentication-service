@@ -1,3 +1,5 @@
+import requests
+
 from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 
@@ -53,5 +55,10 @@ class UserCreateSerializer(serializers.ModelSerializer):
         instance = User(**validated_data)
         instance.set_password(validated_data.get('password'))
         instance.save()
+        try:
+            response = requests.get(f'http://localhost:5000/mail/{instance.username}/{instance.first_name}')
+            print(response)
+        except:
+            pass
         return instance
 
