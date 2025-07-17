@@ -1,7 +1,7 @@
 from django.urls import path 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 
-from authapi.views import (UserListAPIView, UserCreateAPIView)
+from authapi.views import (UserListAPIView, UserCreateAPIView,CombinedForgotResetPasswordAPIView,ResetPasswordApiView)
 
 app_name = 'authapi'
 
@@ -12,4 +12,8 @@ urlpatterns = [
 
     path('list/user/', UserListAPIView.as_view(), name='list-user'),
     path('create/user/', UserCreateAPIView.as_view(), name='create-user'),
+    path('forgot-password/', CombinedForgotResetPasswordAPIView.as_view(), name='forgot-password'),
+    path('reset-password/', ResetPasswordApiView.as_view(), name='reset-password'),
+    
 ]
+
