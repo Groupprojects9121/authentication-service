@@ -61,7 +61,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'sadityakumar189@gmail.com'
+
+
+
 
 
 TEMPLATES = [
@@ -87,8 +89,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv('PGDATABASE'),
+        'USER': os.getenv('PGUSER'),
+        'PASSWORD': os.getenv('PGPASSWORD'),
+        'HOST': os.getenv('PGHOST'),  # or '127.0.0.1'
+        'PORT': '5432',
     }
 }
 
