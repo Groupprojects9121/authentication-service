@@ -1,3 +1,9 @@
 from django.contrib import admin
+from authapi.models import User
+from authapi.models import PasswordResetOTP
 
-# Register your models here.
+admin.site.register(PasswordResetOTP)
+
+@admin.register(User)
+class UserModelAdminForm(admin.ModelAdmin):
+    pass
