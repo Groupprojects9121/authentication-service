@@ -29,7 +29,11 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(os.getenv('DEBUG'))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['prod-authentication-service-o9kj.onrender.com', "localhost"]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://prod-authentication-service-o9kj.onrender.com',
+]
 
 
 # Application definition
